@@ -239,7 +239,8 @@ body.site-ready .page-enter {
   .site-intro,
   .hero-animate,
   .page-enter,
-  .header-enter {
+  .header-enter,
+  .chat-typing-dot {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
@@ -253,5 +254,36 @@ body:not(.site-ready) .header-enter {
 body.site-ready .header-enter {
   animation: fade-in 0.5s ease-out 0.1s forwards;
   opacity: 0;
+}
+
+/* Chatbot typing indicator */
+.chat-typing-dot {
+  display: inline-block;
+  height: 0.5rem;
+  width: 0.5rem;
+  border-radius: 9999px;
+  background: var(--color-gold-500);
+  animation: chat-bounce 1.2s infinite ease-in-out;
+}
+
+.chat-typing-dot.animation-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.chat-typing-dot.animation-delay-400 {
+  animation-delay: 0.4s;
+}
+
+@keyframes chat-bounce {
+  0%,
+  80%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  40% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
 }
 
