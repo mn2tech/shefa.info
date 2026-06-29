@@ -20,7 +20,7 @@ export default function ResourceCard({ resource }: ResourceCardProps) {
           <span className="text-xs font-semibold uppercase tracking-wide text-gold-600">
             {resource.type}
           </span>
-          <h3 className="mt-1 text-lg font-semibold text-navy-900">
+          <h3 className="mt-1 font-serif text-lg font-semibold text-navy-900">
             {resource.title}
           </h3>
           <p className="mt-2 text-sm leading-relaxed text-navy-600">

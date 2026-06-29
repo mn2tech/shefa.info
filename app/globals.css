@@ -31,6 +31,10 @@
   --font-serif: "Playfair Display", ui-serif, Georgia, serif;
 }
 
+:root {
+  --header-height: 6.5rem;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -55,3 +59,199 @@ body {
     rgba(5, 10, 20, 0.85) 100%
   );
 }
+
+/* Site intro splash */
+.site-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-navy-950);
+  cursor: pointer;
+  animation: intro-fade-in 0.4s ease-out forwards;
+}
+
+.site-intro-exit {
+  animation: intro-fade-out 0.6s ease-in forwards;
+  pointer-events: none;
+}
+
+.site-intro-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.site-intro-logo {
+  animation: intro-logo-in 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
+  transform: scale(0.88);
+}
+
+.site-intro-tagline {
+  margin-top: 1.25rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold-400);
+  animation: intro-fade-up 0.8s ease-out 0.5s forwards;
+  opacity: 0;
+}
+
+.site-intro-line {
+  margin-top: 1.5rem;
+  height: 2px;
+  width: 0;
+  border-radius: 9999px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-gold-500),
+    transparent
+  );
+  animation: intro-line-expand 0.8s ease-out 0.9s forwards;
+}
+
+.site-intro-skip {
+  position: absolute;
+  bottom: 2rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-navy-400);
+  animation: intro-fade-up 0.6s ease-out 1.2s forwards;
+  opacity: 0;
+}
+
+/* Page entrance animations */
+.hero-animate {
+  opacity: 0;
+}
+
+body.site-ready .hero-animate {
+  animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+body.site-ready .hero-animate-delay-1 {
+  animation-delay: 0.1s;
+}
+
+body.site-ready .hero-animate-delay-2 {
+  animation-delay: 0.25s;
+}
+
+body.site-ready .hero-animate-delay-3 {
+  animation-delay: 0.4s;
+}
+
+body.site-ready .hero-animate-delay-4 {
+  animation-delay: 0.55s;
+}
+
+body.site-ready .hero-animate-delay-5 {
+  animation-delay: 0.7s;
+}
+
+.page-enter {
+  opacity: 0;
+}
+
+body.site-ready .page-enter {
+  animation: fade-in 0.6s ease-out forwards;
+}
+
+@keyframes intro-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes intro-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes intro-logo-in {
+  from {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes intro-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes intro-line-expand {
+  from {
+    width: 0;
+  }
+  to {
+    width: 8rem;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-intro,
+  .hero-animate,
+  .page-enter,
+  .header-enter {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+body:not(.site-ready) .header-enter {
+  opacity: 0;
+}
+
+body.site-ready .header-enter {
+  animation: fade-in 0.5s ease-out 0.1s forwards;
+  opacity: 0;
+}
+

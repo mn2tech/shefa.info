@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import Button from "@/components/ui/Button";
+import PageCTA from "@/components/ui/PageCTA";
+import PageHero from "@/components/ui/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
 import EventCard from "@/components/EventCard";
 import type { EventItem } from "@/lib/types";
 
 export const metadata: Metadata = {
-  title: "Events",
+  title: "Results & Events",
   description:
-    "Join Shefa Connect events — networking breakfasts, lunch and learns, AI workshops, and business leader roundtables.",
+    "Join Shefa events — networking breakfasts, lunch and learns, AI workshops, and business leader roundtables.",
 };
 
 const events: EventItem[] = [
@@ -52,23 +53,11 @@ const events: EventItem[] = [
 export default function EventsPage() {
   return (
     <>
-      <section className="bg-gray-soft py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-widest text-gold-600">
-              Events
-            </p>
-            <h1 className="mt-3 text-4xl font-bold tracking-tight text-navy-900 sm:text-5xl">
-              Connect, Learn, and Grow Together
-            </h1>
-            <p className="mt-6 text-lg leading-relaxed text-navy-600">
-              Shefa hosts regular events where business owners and leaders come
-              together to network, learn, and share insights. Join us at our
-              next gathering.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Results & Events"
+        title="Connect, Learn, and Grow Together"
+        description="Shefa hosts regular events where business owners and leaders come together to network, learn, and share insights."
+      />
 
       <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -84,22 +73,11 @@ export default function EventsPage() {
         </div>
       </section>
 
-      <section className="bg-gray-soft py-16 sm:py-20">
-        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-navy-900">
-            Stay in the Loop
-          </h2>
-          <p className="mt-4 text-lg text-navy-600">
-            Contact us to receive updates about upcoming events, workshops, and
-            networking opportunities.
-          </p>
-          <div className="mt-8">
-            <Button href="/contact" size="lg">
-              Get Event Updates
-            </Button>
-          </div>
-        </div>
-      </section>
+      <PageCTA
+        title="Stay in the Loop"
+        description="Contact us to receive updates about upcoming events, workshops, and networking opportunities."
+        buttonText="Get Event Updates"
+      />
     </>
   );
 }

@@ -14,13 +14,14 @@ import {
   FileCheck,
 } from "lucide-react";
 import Card from "@/components/ui/Card";
+import PageHero from "@/components/ui/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ConnectRequestForm from "@/components/forms/ConnectRequestForm";
 
 export const metadata: Metadata = {
-  title: "Business Connect",
+  title: "Strategic Connections",
   description:
-    "Request trusted introductions to financial advisors, attorneys, CPAs, marketing experts, IT consultants, and more through Shefa Business Connect.",
+    "Request trusted introductions to financial advisors, attorneys, CPAs, marketing experts, IT consultants, and more through Shefa.",
 };
 
 const categories = [
@@ -89,23 +90,11 @@ const categories = [
 export default function BusinessConnectPage() {
   return (
     <>
-      <section className="bg-navy-900 py-16 text-white sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-widest text-gold-400">
-              Business Connect
-            </p>
-            <h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
-              Trusted Introductions to the Professionals You Need
-            </h1>
-            <p className="mt-6 text-lg leading-relaxed text-navy-200">
-              Business owners can request introductions to trusted professionals
-              in our network. Tell us what you need, and we will connect you with
-              vetted advisors who understand your industry and goals.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Strategic Connections"
+        title="Trusted Introductions to the Professionals You Need"
+        description="Business owners can request introductions to trusted professionals in our network. Tell us what you need, and we will connect you with vetted advisors who understand your industry and goals."
+      />
 
       <section className="py-16 sm:py-20" aria-labelledby="categories-heading">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -122,12 +111,10 @@ export default function BusinessConnectPage() {
                 >
                   <category.icon className="h-5 w-5" />
                 </div>
-                <h3 className="mt-3 text-base font-semibold text-navy-900">
+                <h3 className="mt-3 font-serif text-base font-semibold text-navy-900">
                   {category.title}
                 </h3>
-                <p className="mt-1.5 text-sm text-navy-600">
-                  {category.description}
-                </p>
+                <p className="mt-1.5 text-sm text-navy-600">{category.description}</p>
               </Card>
             ))}
           </div>
@@ -143,7 +130,7 @@ export default function BusinessConnectPage() {
             title="Request a Connection"
             subtitle="Complete the form below and our team will match you with trusted professionals who can help."
           />
-          <div className="rounded-2xl border border-gray-muted bg-white p-6 shadow-sm sm:p-8">
+          <div className="rounded-lg border border-gray-muted bg-white p-6 shadow-sm sm:p-8">
             <h2 id="request-form-heading" className="sr-only">
               Connection request form
             </h2>

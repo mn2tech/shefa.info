@@ -27,6 +27,7 @@ import {
 } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
+import HeroVideo from "@/components/home/HeroVideo";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -124,37 +125,30 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <section
-        className="relative -mt-[60px] flex min-h-screen flex-col justify-center bg-navy-950 pt-[60px] text-white"
+        className="relative -mt-[var(--header-height)] flex min-h-screen flex-col justify-center bg-navy-950 pt-[var(--header-height)] text-white"
         aria-labelledby="hero-heading"
       >
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1542744173-8e7e5347bb63?auto=format&fit=crop&w=1920&q=80')",
-          }}
-          aria-hidden
-        />
+        <HeroVideo />
         <div className="hero-overlay absolute inset-0" aria-hidden />
 
         <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
           <div className="max-w-3xl">
             <h1
               id="hero-heading"
-              className="font-serif text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl"
+              className="hero-animate hero-animate-delay-2 font-serif text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl"
             >
               Helping Businesses Grow Through{" "}
               <span className="text-gold-400">
                 Strategy, Relationships &amp; Execution.
               </span>
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-navy-100 sm:text-xl">
+            <p className="hero-animate hero-animate-delay-3 mt-6 text-lg leading-relaxed text-navy-100 sm:text-xl">
               Shefa partners with business owners and executive teams to solve
               growth challenges, develop strategic opportunities, and connect
               them with the right people and resources to accelerate long-term
               success.
             </p>
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+            <div className="hero-animate hero-animate-delay-4 mt-10 flex flex-col gap-4 sm:flex-row">
               <Button href="/contact" size="lg" showArrow>
                 Schedule a Strategy Session
               </Button>
@@ -167,7 +161,7 @@ export default function HomePage() {
         </div>
 
         {/* Stats bar */}
-        <div className="relative border-t border-white/10 bg-navy-950/90 backdrop-blur-sm">
+        <div className="hero-animate hero-animate-delay-5 relative border-t border-white/10 bg-navy-950/90 backdrop-blur-sm">
           <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-4 py-8 sm:px-6 md:grid-cols-4 lg:px-8">
             {stats.map((stat) => (
               <div key={stat.label} className="flex items-center gap-4">

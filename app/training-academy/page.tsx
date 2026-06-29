@@ -11,15 +11,16 @@ import {
   Video,
   Calendar,
 } from "lucide-react";
-import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
+import PageCTA from "@/components/ui/PageCTA";
+import PageHero from "@/components/ui/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
 import type { TrainingTopic, WorkshopPlaceholder } from "@/lib/types";
 
 export const metadata: Metadata = {
-  title: "Training Academy",
+  title: "Executive Workshops",
   description:
-    "Build business skills with Shefa Training Academy — workshops and webinars on leadership, sales, marketing, AI, government contracting, finance, and more.",
+    "Build business skills with Shefa — workshops and webinars on leadership, sales, marketing, AI, government contracting, finance, and more.",
 };
 
 const topics: TrainingTopic[] = [
@@ -124,24 +125,11 @@ const workshops: WorkshopPlaceholder[] = [
 export default function TrainingAcademyPage() {
   return (
     <>
-      <section className="bg-gray-soft py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-widest text-gold-600">
-              Training Academy
-            </p>
-            <h1 className="mt-3 text-4xl font-bold tracking-tight text-navy-900 sm:text-5xl">
-              Learn. Lead. Grow.
-            </h1>
-            <p className="mt-6 text-lg leading-relaxed text-navy-600">
-              The Shefa Training Academy offers workshops and webinars designed
-              to equip business owners with practical skills for today&apos;s
-              challenges. Learn from experienced leaders in a supportive,
-              community-driven environment.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Executive Workshops"
+        title="Learn. Lead. Grow."
+        description="Shefa offers workshops and webinars designed to equip business owners with practical skills for today's challenges. Learn from experienced leaders in a supportive environment."
+      />
 
       <section className="py-16 sm:py-20" aria-labelledby="topics-heading">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -160,7 +148,7 @@ export default function TrainingAcademyPage() {
                   >
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mt-3 text-lg font-semibold text-navy-900">
+                  <h3 className="mt-3 font-serif text-lg font-semibold text-navy-900">
                     {topic.title}
                   </h3>
                   <p className="mt-2 text-sm text-navy-600">{topic.description}</p>
@@ -171,10 +159,7 @@ export default function TrainingAcademyPage() {
         </div>
       </section>
 
-      <section
-        className="bg-gray-soft py-16 sm:py-20"
-        aria-labelledby="workshops-heading"
-      >
+      <section className="bg-gray-soft py-16 sm:py-20" aria-labelledby="workshops-heading">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
             title="Upcoming Workshops & Webinars"
@@ -193,37 +178,24 @@ export default function TrainingAcademyPage() {
                     {workshop.type}
                   </span>
                 </div>
-                <h3 className="mt-3 text-lg font-semibold text-navy-900">
+                <h3 className="mt-3 font-serif text-lg font-semibold text-navy-900">
                   {workshop.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-navy-600">
                   {workshop.description}
                 </p>
-                <p className="mt-4 text-sm font-medium text-navy-500">
-                  {workshop.date}
-                </p>
+                <p className="mt-4 text-sm font-medium text-navy-500">{workshop.date}</p>
               </Card>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-16 sm:py-20">
-        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-navy-900">
-            Want to Be Notified About New Sessions?
-          </h2>
-          <p className="mt-4 text-lg text-navy-600">
-            Contact us to join our training updates list and be the first to
-            know about upcoming workshops and webinars.
-          </p>
-          <div className="mt-8">
-            <Button href="/contact" size="lg">
-              Get Training Updates
-            </Button>
-          </div>
-        </div>
-      </section>
+      <PageCTA
+        title="Want to Be Notified About New Sessions?"
+        description="Contact us to join our training updates list and be the first to know about upcoming workshops and webinars."
+        buttonText="Get Training Updates"
+      />
     </>
   );
 }

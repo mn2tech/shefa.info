@@ -7,15 +7,16 @@ import {
   MapPin,
   Building2,
 } from "lucide-react";
-import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
+import PageCTA from "@/components/ui/PageCTA";
+import PageHero from "@/components/ui/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
 import type { AudienceCard } from "@/lib/types";
 
 export const metadata: Metadata = {
-  title: "Who We Help",
+  title: "Industries",
   description:
-    "Shefa Connect supports small business owners, startups, faith-based leaders, service providers, local businesses, and growing companies.",
+    "Shefa supports small business owners, startups, faith-based leaders, service providers, local businesses, and growing companies.",
 };
 
 const audiences: AudienceCard[] = [
@@ -69,23 +70,11 @@ const iconMap = {
 export default function WhoWeHelpPage() {
   return (
     <>
-      <section className="bg-gray-soft py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-widest text-gold-600">
-              Who We Help
-            </p>
-            <h1 className="mt-3 text-4xl font-bold tracking-tight text-navy-900 sm:text-5xl">
-              Business Leaders at Every Stage of Growth
-            </h1>
-            <p className="mt-6 text-lg leading-relaxed text-navy-600">
-              Shefa Connect is designed for business owners and professionals who
-              value trust, community, and practical support. No matter where you
-              are in your journey, we are here to help you connect and grow.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Industries We Serve"
+        title="Business Leaders at Every Stage of Growth"
+        description="Shefa is designed for business owners and professionals who value trust, community, and practical support. No matter where you are in your journey, we are here to help you connect and grow."
+      />
 
       <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -104,7 +93,7 @@ export default function WhoWeHelpPage() {
                   >
                     <Icon className="h-6 w-6" />
                   </div>
-                  <h3 className="mt-4 text-xl font-semibold text-navy-900">
+                  <h3 className="mt-4 font-serif text-xl font-semibold text-navy-900">
                     {audience.title}
                   </h3>
                   <p className="mt-3 leading-relaxed text-navy-600">
@@ -117,23 +106,12 @@ export default function WhoWeHelpPage() {
         </div>
       </section>
 
-      <section className="bg-navy-900 py-16 text-white sm:py-20">
-        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold">Is Shefa Right for You?</h2>
-          <p className="mt-4 text-lg text-navy-200">
-            If you are a business owner looking for trusted connections and
-            practical growth support, we would love to hear from you.
-          </p>
-          <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-            <Button href="/business-connect" size="lg">
-              Request a Connection
-            </Button>
-            <Button href="/contact" variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
-              Contact Us
-            </Button>
-          </div>
-        </div>
-      </section>
+      <PageCTA
+        title="Is Shefa Right for You?"
+        description="If you are a business owner looking for trusted connections and practical growth support, we would love to hear from you."
+        buttonText="Request a Connection"
+        buttonHref="/business-connect"
+      />
     </>
   );
 }

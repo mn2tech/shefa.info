@@ -9,14 +9,15 @@ import {
   DollarSign,
   Landmark,
 } from "lucide-react";
-import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
+import PageCTA from "@/components/ui/PageCTA";
+import PageHero from "@/components/ui/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 export const metadata: Metadata = {
-  title: "Services",
+  title: "Solutions",
   description:
-    "Explore Shefa Connect services including business consulting, strategic connections, leadership coaching, AI guidance, marketing support, and more.",
+    "Explore Shefa services including strategic advisory, business consulting, leadership coaching, AI guidance, marketing support, and more.",
 };
 
 const services = [
@@ -73,23 +74,11 @@ const services = [
 export default function ServicesPage() {
   return (
     <>
-      <section className="bg-gray-soft py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-widest text-gold-600">
-              Our Services
-            </p>
-            <h1 className="mt-3 text-4xl font-bold tracking-tight text-navy-900 sm:text-5xl">
-              Comprehensive Support for Business Growth
-            </h1>
-            <p className="mt-6 text-lg leading-relaxed text-navy-600">
-              From strategic consulting to specialized guidance, Shefa offers a
-              full range of services designed to help business owners make
-              confident decisions and achieve meaningful growth.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Our Solutions"
+        title="Comprehensive Support for Business Growth"
+        description="From strategic consulting to specialized guidance, Shefa offers services designed to help business owners make confident decisions and achieve meaningful growth."
+      />
 
       <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -106,7 +95,7 @@ export default function ServicesPage() {
                 >
                   <service.icon className="h-6 w-6" />
                 </div>
-                <h3 className="mt-4 text-lg font-semibold text-navy-900">
+                <h3 className="mt-4 font-serif text-lg font-semibold text-navy-900">
                   {service.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-navy-600">
@@ -118,22 +107,11 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="bg-gray-soft py-16 sm:py-20">
-        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-navy-900">
-            Not Sure Where to Start?
-          </h2>
-          <p className="mt-4 text-lg text-navy-600">
-            Schedule a consultation and we will help you identify the services
-            and connections that best fit your business needs.
-          </p>
-          <div className="mt-8">
-            <Button href="/contact" size="lg">
-              Schedule a Consultation
-            </Button>
-          </div>
-        </div>
-      </section>
+      <PageCTA
+        title="Not Sure Where to Start?"
+        description="Schedule a consultation and we will help you identify the services and connections that best fit your business needs."
+        buttonText="Schedule a Strategy Session"
+      />
     </>
   );
 }

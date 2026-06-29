@@ -7,13 +7,13 @@ interface LogoProps {
 }
 
 const sizes = {
-  sm: { width: 140, height: 40 },
-  md: { width: 180, height: 52 },
-  lg: { width: 220, height: 64 },
+  sm: { width: 200, height: 58, maxHeight: "max-h-14" },
+  md: { width: 260, height: 75, maxHeight: "max-h-[4.5rem]" },
+  lg: { width: 320, height: 92, maxHeight: "max-h-20" },
 };
 
 export default function Logo({ className = "", size = "md" }: LogoProps) {
-  const { width, height } = sizes[size];
+  const { width, height, maxHeight } = sizes[size];
 
   return (
     <Link href="/" className={`inline-block shrink-0 ${className}`} aria-label="Shefa home">
@@ -23,7 +23,7 @@ export default function Logo({ className = "", size = "md" }: LogoProps) {
         width={width}
         height={height}
         priority
-        className="h-auto w-auto max-h-12 object-contain"
+        className={`h-auto w-auto ${maxHeight} max-sm:max-h-12 object-contain object-left`}
       />
     </Link>
   );

@@ -15,7 +15,7 @@ export default function SectionHeading({
 
   return (
     <div className={`mb-12 max-w-3xl ${alignClass} ${className}`}>
-      <h2 className="text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl">
+      <h2 className="font-serif text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl">
         {title}
       </h2>
       {subtitle && (

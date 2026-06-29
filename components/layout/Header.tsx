@@ -33,14 +33,14 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 z-50 w-full transition-colors ${
+      className={`header-enter fixed top-0 z-50 w-full transition-colors ${
         isHome
           ? "border-b border-white/10 bg-navy-950/80 backdrop-blur-md"
           : "border-b border-navy-800 bg-navy-950 shadow-sm"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        <Logo size="sm" />
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+        <Logo size="md" />
 
         <nav
           className="hidden items-center gap-0.5 xl:flex"

@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { Heart, Users, Shield, ArrowRightLeft } from "lucide-react";
-import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
+import PageCTA from "@/components/ui/PageCTA";
+import PageHero from "@/components/ui/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About Us",
   description:
-    "Learn about Shefa Connect — a business consulting organization helping owners grow through relationships, strategy, education, and trusted community support.",
+    "Learn about Shefa — a strategic advisory firm helping business owners grow through relationships, strategy, and trusted community support.",
 };
 
 const values = [
@@ -40,63 +41,44 @@ const values = [
 export default function AboutPage() {
   return (
     <>
-      <section className="bg-gray-soft py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-widest text-gold-600">
-              About Shefa
-            </p>
-            <h1 className="mt-3 text-4xl font-bold tracking-tight text-navy-900 sm:text-5xl">
-              Growing Businesses Through Relationships, Strategy, and Education
-            </h1>
-            <p className="mt-6 text-lg leading-relaxed text-navy-600">
-              Shefa exists to help business owners grow through relationships,
-              strategy, and education. We believe that the right connection at
-              the right time can transform a business — and that growth is best
-              achieved within a community of trusted peers and professionals.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="About Shefa"
+        title="Growing Businesses Through Relationships, Strategy, and Education"
+        description="Shefa exists to help business owners grow through relationships, strategy, and education. We believe the right connection at the right time can transform a business."
+      />
 
       <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
-              <h2 className="text-3xl font-bold text-navy-900">
-                Our Mission
-              </h2>
+              <h2 className="font-serif text-3xl font-bold text-navy-900">Our Mission</h2>
               <p className="mt-4 leading-relaxed text-navy-600">
-                Shefa Connect serves as a bridge between business owners and the
-                trusted professionals they need to succeed. We combine strategic
-                consulting, meaningful introductions, and practical training to
-                help leaders make confident decisions and build sustainable
-                growth.
+                Shefa serves as a bridge between business owners and the trusted
+                professionals they need to succeed. We combine strategic consulting,
+                meaningful introductions, and practical training to help leaders
+                make confident decisions and build sustainable growth.
               </p>
               <p className="mt-4 leading-relaxed text-navy-600">
-                Whether you are launching a startup, scaling a growing company,
-                or strengthening a local business, Shefa provides the community,
+                Whether you are launching a startup, scaling a growing company, or
+                strengthening a local business, Shefa provides the community,
                 guidance, and resources to help you move forward.
               </p>
             </div>
-            <div className="rounded-2xl bg-navy-900 p-8 text-white sm:p-10">
-              <blockquote className="text-lg leading-relaxed text-navy-100">
-                &ldquo;We are not just consultants — we are connectors. Our role
-                is to help business owners find the people, knowledge, and
-                support they need to thrive.&rdquo;
+            <div className="rounded-lg border border-gold-500/30 bg-navy-950 p-8 text-white sm:p-10">
+              <blockquote className="font-serif text-lg leading-relaxed text-navy-100">
+                &ldquo;We are not just consultants — we are connectors. Our role is
+                to help business owners find the people, knowledge, and support
+                they need to thrive.&rdquo;
               </blockquote>
               <p className="mt-6 text-sm font-medium text-gold-400">
-                — The Shefa Connect Team
+                — The Shefa Team
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section
-        className="bg-gray-soft py-16 sm:py-20"
-        aria-labelledby="values-heading"
-      >
+      <section className="bg-gray-soft py-16 sm:py-20" aria-labelledby="values-heading">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
             title="What We Stand For"
@@ -111,7 +93,7 @@ export default function AboutPage() {
                 >
                   <value.icon className="h-6 w-6" />
                 </div>
-                <h3 className="mt-4 text-lg font-semibold text-navy-900">
+                <h3 className="mt-4 font-serif text-lg font-semibold text-navy-900">
                   {value.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-navy-600">
@@ -123,22 +105,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20">
-        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-navy-900">
-            Join Our Growing Community
-          </h2>
-          <p className="mt-4 text-lg text-navy-600">
-            Connect with business leaders, access practical resources, and find
-            the support you need to grow with confidence.
-          </p>
-          <div className="mt-8">
-            <Button href="/business-connect" size="lg">
-              Join the Network
-            </Button>
-          </div>
-        </div>
-      </section>
+      <PageCTA
+        title="Join Our Growing Community"
+        description="Connect with business leaders, access practical resources, and find the support you need to grow with confidence."
+        buttonText="Request a Connection"
+        buttonHref="/business-connect"
+      />
     </>
   );
 }

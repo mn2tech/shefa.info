@@ -12,7 +12,7 @@ export default function EventCard({ event }: EventCardProps) {
       <span className="inline-block rounded-full bg-gold-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gold-700">
         {event.type}
       </span>
-      <h3 className="mt-4 text-xl font-semibold text-navy-900">{event.title}</h3>
+      <h3 className="mt-4 font-serif text-xl font-semibold text-navy-900">{event.title}</h3>
       <p className="mt-2 text-sm leading-relaxed text-navy-600">
         {event.description}
       </p>
