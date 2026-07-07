@@ -9,8 +9,8 @@ export const siteConfig = {
   description:
     "Shefa partners with business owners and executive teams to solve growth challenges, develop strategic opportunities, and connect them with the right people and resources.",
   url: "https://shefa.info",
-  email: "info@shefa.info",
-  phone: process.env.NEXT_PUBLIC_BUSINESS_PHONE ?? "2408887474",
+  email: "contact@shefa.info",
+  phone: process.env.NEXT_PUBLIC_BUSINESS_PHONE ?? "2408884270",
   address: {
     locality: "Washington",
     region: "DC",
