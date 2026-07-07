@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import Logo from "@/components/ui/Logo";
@@ -117,15 +118,38 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-navy-800 pt-8 text-xs text-navy-400 sm:flex-row">
-          <p>&copy; {currentYear} {siteConfig.legalName}. All Rights Reserved.</p>
-          <div className="flex gap-6">
-            <Link href="/contact" className="hover:text-white">
-              Privacy Policy
-            </Link>
-            <Link href="/contact" className="hover:text-white">
-              Terms of Service
-            </Link>
+        <div className="mt-12 space-y-6 border-t border-navy-800 pt-8">
+          <div className="flex flex-col items-center justify-between gap-4 text-xs text-navy-400 sm:flex-row">
+            <p>&copy; {currentYear} {siteConfig.legalName}. All Rights Reserved.</p>
+            <div className="flex gap-6">
+              <Link href="/contact" className="hover:text-white">
+                Privacy Policy
+              </Link>
+              <Link href="/contact" className="hover:text-white">
+                Terms of Service
+              </Link>
+            </div>
+          </div>
+
+          <div className="flex justify-center">
+            <a
+              href={siteConfig.designer.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col items-center gap-2 transition-opacity hover:opacity-90"
+              aria-label={`Website designed by ${siteConfig.designer.name}`}
+            >
+              <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-navy-500">
+                Designed by
+              </span>
+              <Image
+                src={siteConfig.designer.logo}
+                alt={`${siteConfig.designer.name} — ${siteConfig.designer.tagline}`}
+                width={140}
+                height={48}
+                className="h-10 w-auto opacity-90 transition-opacity group-hover:opacity-100"
+              />
+            </a>
           </div>
         </div>
       </div>

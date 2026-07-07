@@ -19,6 +19,12 @@ export const siteConfig = {
   social: {
     linkedin: "https://linkedin.com",
   },
+  designer: {
+    name: "NM2TECH",
+    tagline: "Next Move",
+    url: "https://www.nm2tech.com",
+    logo: "/images/nm2tech-logo.png",
+  },
 } as const;
 
 export function formatPhoneForDisplay(phone: string): string {

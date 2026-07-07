@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 
 const INTRO_SEEN_KEY = "shefa-intro-seen";
 
@@ -16,7 +16,7 @@ export default function SiteIntro() {
     window.setTimeout(() => setVisible(false), 600);
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const reducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
@@ -29,8 +29,8 @@ export default function SiteIntro() {
       return;
     }
 
-    setVisible(true);
     document.body.classList.remove("site-ready");
+    setVisible(true);
 
     const exitTimer = window.setTimeout(finishIntro, 2200);
 
