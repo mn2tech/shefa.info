@@ -22,7 +22,7 @@ export const siteConfig = {
   designer: {
     name: "NM2TECH",
     tagline: "Next Move",
-    url: "https://www.nm2tech.com",
+    url: "https://nm2web-redesign.vercel.app",
     logo: "/images/nm2tech-logo.png",
   },
 } as const;
