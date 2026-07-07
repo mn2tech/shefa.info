@@ -3,11 +3,17 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import ContactForm from "@/components/forms/ContactForm";
 import PageHero from "@/components/ui/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
+import {
+  formatPhoneForDisplay,
+  formatPhoneForTel,
+  hasBusinessPhone,
+  siteConfig,
+} from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with Shefa. Reach us at info@shefa.info or send a message through our contact form.",
+    `Get in touch with Shefa. Reach us at ${siteConfig.email} or send a message through our contact form.`,
 };
 
 export default function ContactPage() {
@@ -34,7 +40,7 @@ export default function ContactPage() {
               <ul className="mt-8 space-y-4">
                 <li>
                   <a
-                    href="mailto:info@shefa.info"
+                    href={`mailto:${siteConfig.email}`}
                     className="flex items-start gap-4 rounded-lg border border-gray-muted p-4 transition-colors hover:border-gold-300 hover:bg-gray-soft"
                   >
                     <div
@@ -45,27 +51,31 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <p className="text-sm font-medium text-navy-500">Email</p>
-                      <p className="font-semibold text-navy-900">info@shefa.info</p>
+                      <p className="font-semibold text-navy-900">{siteConfig.email}</p>
                     </div>
                   </a>
                 </li>
-                <li>
-                  <a
-                    href="tel:+12405550170"
-                    className="flex items-start gap-4 rounded-lg border border-gray-muted p-4 transition-colors hover:border-gold-300 hover:bg-gray-soft"
-                  >
-                    <div
-                      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gold-100 text-gold-600"
-                      aria-hidden
+                {hasBusinessPhone && (
+                  <li>
+                    <a
+                      href={`tel:${formatPhoneForTel(siteConfig.phone)}`}
+                      className="flex items-start gap-4 rounded-lg border border-gray-muted p-4 transition-colors hover:border-gold-300 hover:bg-gray-soft"
                     >
-                      <Phone className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium text-navy-500">Phone</p>
-                      <p className="font-semibold text-navy-900">(240) 555-0170</p>
-                    </div>
-                  </a>
-                </li>
+                      <div
+                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gold-100 text-gold-600"
+                        aria-hidden
+                      >
+                        <Phone className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-navy-500">Phone</p>
+                        <p className="font-semibold text-navy-900">
+                          {formatPhoneForDisplay(siteConfig.phone)}
+                        </p>
+                      </div>
+                    </a>
+                  </li>
+                )}
                 <li className="flex items-start gap-4 rounded-lg border border-gray-muted p-4">
                   <div
                     className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-navy-100 text-navy-700"
@@ -76,7 +86,7 @@ export default function ContactPage() {
                   <div>
                     <p className="text-sm font-medium text-navy-500">Location</p>
                     <p className="font-semibold text-navy-900">
-                      Washington, DC Metro Area
+                      {siteConfig.address.area}
                     </p>
                   </div>
                 </li>

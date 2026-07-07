@@ -28,11 +28,18 @@ import {
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import HeroVideo from "@/components/home/HeroVideo";
+import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "Home",
+  title: "Strategic Business Growth Advisory",
   description:
-    "Shefa partners with business owners and executive teams to solve growth challenges through strategy, relationships, and execution.",
+    "Shefa partners with business owners and executive teams in the Washington, DC Metro Area to solve growth challenges through strategy, relationships, and execution.",
+  openGraph: {
+    title: "Shefa | Strategic Business Growth Advisory | Washington DC Metro",
+    description:
+      "Executive advisory, strategic connections, and business growth support for leaders ready to build their next stage of success.",
+    url: siteConfig.url,
+  },
 };
 
 const stats = [
@@ -93,6 +100,27 @@ const pillars = [
     title: "Trusted Growth Ecosystem",
     description:
       "Access to a carefully curated network of experienced professionals and experts.",
+  },
+];
+
+const clientPerspectives = [
+  {
+    quote:
+      "Shefa helped us clarify our growth priorities and connected us with advisors who understood our industry. The introductions alone saved months of searching.",
+    role: "Healthcare Practice Owner",
+    region: "Maryland",
+  },
+  {
+    quote:
+      "The strategic blueprint gave our leadership team a shared plan we could actually execute. It changed how we approach partnerships and expansion.",
+    role: "Construction Company Leader",
+    region: "Virginia",
+  },
+  {
+    quote:
+      "What stood out was the quality of the network. Every introduction felt intentional, not transactional — exactly what we needed at our stage of growth.",
+    role: "Professional Services Firm",
+    region: "DC Metro",
   },
 ];
 
@@ -260,6 +288,48 @@ export default function HomePage() {
                 </p>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Client Perspectives */}
+      <section
+        className="bg-gray-soft py-20 sm:py-24"
+        aria-labelledby="perspectives-heading"
+      >
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <p className="text-xs font-semibold uppercase tracking-widest text-gold-600">
+              Client Perspectives
+            </p>
+            <h2
+              id="perspectives-heading"
+              className="mt-3 font-serif text-3xl font-bold text-navy-900 sm:text-4xl"
+            >
+              Trusted by Business Leaders Across the Region
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-navy-600">
+              Anonymized perspectives from clients we&apos;ve supported. Full case
+              studies are available upon request.
+            </p>
+          </div>
+          <div className="mt-14 grid gap-8 md:grid-cols-3">
+            {clientPerspectives.map((item) => (
+              <Card key={item.role} hover={false}>
+                <p className="font-serif text-lg leading-relaxed text-navy-800">
+                  &ldquo;{item.quote}&rdquo;
+                </p>
+                <div className="mt-6 border-t border-gray-muted pt-4">
+                  <p className="text-sm font-semibold text-navy-900">{item.role}</p>
+                  <p className="text-sm text-navy-500">{item.region}</p>
+                </div>
+              </Card>
+            ))}
+          </div>
+          <div className="mt-10 text-center">
+            <Button href="/events" variant="outline">
+              Explore Results &amp; Events
+            </Button>
           </div>
         </div>
       </section>

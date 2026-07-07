@@ -1,0 +1,38 @@
+/**
+ * Central site configuration.
+ * Set NEXT_PUBLIC_BUSINESS_PHONE in .env.local when a real number is available.
+ */
+export const siteConfig = {
+  name: "Shefa",
+  legalName: "Shefa",
+  tagline: "Strategic Connections. Sustainable Growth.",
+  description:
+    "Shefa partners with business owners and executive teams to solve growth challenges, develop strategic opportunities, and connect them with the right people and resources.",
+  url: "https://shefa.info",
+  email: "info@shefa.info",
+  phone: process.env.NEXT_PUBLIC_BUSINESS_PHONE ?? "2408887474",
+  address: {
+    locality: "Washington",
+    region: "DC",
+    area: "Washington, DC Metro Area",
+  },
+  social: {
+    linkedin: "https://linkedin.com",
+  },
+} as const;
+
+export function formatPhoneForDisplay(phone: string): string {
+  const digits = phone.replace(/\D/g, "");
+  if (digits.length === 10) {
+    return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+  }
+  return phone;
+}
+
+export function formatPhoneForTel(phone: string): string {
+  const digits = phone.replace(/\D/g, "");
+  if (digits.length === 10) return `+1${digits}`;
+  return phone.startsWith("+") ? phone : `+${digits}`;
+}
+
+export const hasBusinessPhone = siteConfig.phone.length > 0;

@@ -1,6 +1,12 @@
 import Link from "next/link";
 import { Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import Logo from "@/components/ui/Logo";
+import {
+  formatPhoneForDisplay,
+  formatPhoneForTel,
+  hasBusinessPhone,
+  siteConfig,
+} from "@/lib/site-config";
 
 const footerColumns = [
   {
@@ -83,34 +89,36 @@ export default function Footer() {
               Contact
             </h3>
             <ul className="mt-4 space-y-3 text-sm">
+              {hasBusinessPhone && (
+                <li>
+                  <a
+                    href={`tel:${formatPhoneForTel(siteConfig.phone)}`}
+                    className="flex items-start gap-2 transition-colors hover:text-white"
+                  >
+                    <Phone className="mt-0.5 h-4 w-4 shrink-0 text-gold-500" aria-hidden />
+                    {formatPhoneForDisplay(siteConfig.phone)}
+                  </a>
+                </li>
+              )}
               <li>
                 <a
-                  href="tel:+12405550170"
-                  className="flex items-start gap-2 transition-colors hover:text-white"
-                >
-                  <Phone className="mt-0.5 h-4 w-4 shrink-0 text-gold-500" aria-hidden />
-                  (240) 555-0170
-                </a>
-              </li>
-              <li>
-                <a
-                  href="mailto:info@shefa.info"
+                  href={`mailto:${siteConfig.email}`}
                   className="flex items-start gap-2 transition-colors hover:text-white"
                 >
                   <Mail className="mt-0.5 h-4 w-4 shrink-0 text-gold-500" aria-hidden />
-                  info@shefa.info
+                  {siteConfig.email}
                 </a>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold-500" aria-hidden />
-                Washington, DC Metro Area
+                {siteConfig.address.area}
               </li>
             </ul>
           </div>
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-navy-800 pt-8 text-xs text-navy-400 sm:flex-row">
-          <p>&copy; {currentYear} Shefa. All Rights Reserved.</p>
+          <p>&copy; {currentYear} {siteConfig.legalName}. All Rights Reserved.</p>
           <div className="flex gap-6">
             <Link href="/contact" className="hover:text-white">
               Privacy Policy

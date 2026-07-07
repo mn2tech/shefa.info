@@ -1,3 +1,9 @@
+import {
+  formatPhoneForDisplay,
+  hasBusinessPhone,
+  siteConfig,
+} from "@/lib/site-config";
+
 export type MessageRole = "user" | "assistant";
 
 export interface ChatMessage {
@@ -6,7 +12,6 @@ export interface ChatMessage {
   content: string;
   links?: ChatLink[];
 }
-
 export interface ChatLink {
   label: string;
   href: string;
@@ -32,10 +37,17 @@ export const FOLLOW_UP_REPLIES: QuickReply[] = [
 
 interface ResponseRule {
   keywords: string[];
-  response: string;
+  response: string | (() => string);
   links?: ChatLink[];
 }
 
+function getContactResponse(): string {
+  const phoneLine = hasBusinessPhone
+    ? ` You can also call ${formatPhoneForDisplay(siteConfig.phone)}.`
+    : " Schedule a conversation through our contact page and we'll follow up promptly.";
+
+  return `You can reach us at ${siteConfig.email}.${phoneLine} We're based in the ${siteConfig.address.area}.`;
+}
 const RESPONSE_RULES: ResponseRule[] = [
   {
     keywords: ["service", "solution", "consult", "advisory", "help", "offer", "do you do"],
@@ -110,8 +122,7 @@ const RESPONSE_RULES: ResponseRule[] = [
   },
   {
     keywords: ["contact", "email", "phone", "reach", "talk", "speak"],
-    response:
-      "You can reach us at info@shefa.info or (240) 555-0170. We're based in the Washington, DC Metro Area.",
+    response: getContactResponse,
     links: [
       { label: "Send a Message", href: "/contact" },
       { label: "Request a Connection", href: "/business-connect" },
@@ -145,7 +156,8 @@ export function getChatbotResponse(input: string): Omit<ChatMessage, "id" | "rol
   for (const rule of RESPONSE_RULES) {
     if (rule.keywords.some((keyword) => normalized.includes(keyword))) {
       return {
-        content: rule.response,
+        content:
+          typeof rule.response === "function" ? rule.response() : rule.response,
         links: rule.links,
       };
     }
