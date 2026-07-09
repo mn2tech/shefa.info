@@ -51,10 +51,10 @@ export default function SiteIntro() {
         <Image
           src="/images/shefa-logo.png"
           alt=""
-          width={280}
-          height={80}
+          width={360}
+          height={104}
           priority
-          className="site-intro-logo h-auto max-h-20 w-auto object-contain sm:max-h-24"
+          className="site-intro-logo h-auto max-h-28 w-auto object-contain sm:max-h-32"
         />
         <p className="site-intro-tagline">
           Strategic Connections. Sustainable Growth.

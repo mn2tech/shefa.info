@@ -32,7 +32,7 @@
 }
 
 :root {
-  --header-height: 6.5rem;
+  --header-height: 6rem;
 }
 
 html {
@@ -57,6 +57,16 @@ body {
     rgba(5, 10, 20, 0.88) 0%,
     rgba(15, 31, 51, 0.75) 50%,
     rgba(5, 10, 20, 0.85) 100%
+  );
+}
+
+.hero-overlay-home {
+  background: linear-gradient(
+    180deg,
+    rgba(5, 10, 20, 0.72) 0%,
+    rgba(5, 10, 20, 0.45) 6rem,
+    rgba(15, 31, 51, 0.7) 45%,
+    rgba(5, 10, 20, 0.88) 100%
   );
 }
 

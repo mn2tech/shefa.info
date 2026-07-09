@@ -153,11 +153,11 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <section
-        className="relative -mt-[var(--header-height)] flex min-h-screen flex-col justify-center bg-navy-950 pt-[var(--header-height)] text-white"
+        className="relative -mt-[var(--header-height)] flex min-h-[calc(100svh+2rem)] flex-col justify-center bg-navy-950 pt-[var(--header-height)] text-white"
         aria-labelledby="hero-heading"
       >
         <HeroVideo />
-        <div className="hero-overlay absolute inset-0" aria-hidden />
+        <div className="hero-overlay hero-overlay-home absolute inset-0" aria-hidden />
 
         <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
           <div className="max-w-3xl">
