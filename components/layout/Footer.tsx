@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import Logo from "@/components/ui/Logo";
 import {
+  formatAddress,
   formatPhoneForDisplay,
   formatPhoneForTel,
   hasBusinessPhone,
@@ -112,7 +113,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold-500" aria-hidden />
-                {siteConfig.address.area}
+                {formatAddress()}
               </li>
             </ul>
           </div>

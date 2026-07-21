@@ -4,6 +4,7 @@ import ContactForm from "@/components/forms/ContactForm";
 import PageHero from "@/components/ui/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
 import {
+  formatAddress,
   formatPhoneForDisplay,
   formatPhoneForTel,
   hasBusinessPhone,
@@ -86,7 +87,7 @@ export default function ContactPage() {
                   <div>
                     <p className="text-sm font-medium text-navy-500">Location</p>
                     <p className="font-semibold text-navy-900">
-                      {siteConfig.address.area}
+                      {formatAddress()}
                     </p>
                   </div>
                 </li>

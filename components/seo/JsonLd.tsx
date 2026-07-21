@@ -17,8 +17,10 @@ export default function JsonLd() {
     },
     address: {
       "@type": "PostalAddress",
+      streetAddress: siteConfig.address.streetAddress,
       addressLocality: siteConfig.address.locality,
       addressRegion: siteConfig.address.region,
+      postalCode: siteConfig.address.postalCode,
       addressCountry: "US",
     },
     serviceType: [

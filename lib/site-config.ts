@@ -12,9 +12,11 @@ export const siteConfig = {
   email: "contact@shefa.info",
   phone: process.env.NEXT_PUBLIC_BUSINESS_PHONE ?? "2408884270",
   address: {
-    locality: "Washington",
-    region: "DC",
-    area: "Washington, DC Metro Area",
+    streetAddress: "2915 Suite F Olney Sandy Spring Road",
+    locality: "Olney",
+    region: "MD",
+    postalCode: "20832",
+    area: "Olney, MD",
   },
   social: {
     linkedin: "https://linkedin.com",
@@ -26,6 +28,11 @@ export const siteConfig = {
     logo: "/images/nm2tech-logo.png",
   },
 } as const;
+
+export function formatAddress(): string {
+  const { streetAddress, locality, region, postalCode } = siteConfig.address;
+  return `${streetAddress}, ${locality}, ${region}, ${postalCode}`;
+}
 
 export function formatPhoneForDisplay(phone: string): string {
   const digits = phone.replace(/\D/g, "");

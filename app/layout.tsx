@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     "business growth advisory",
     "strategic consulting",
     "executive advisory",
-    "Washington DC",
+    "Olney MD",
     "business connections",
     "leadership coaching",
   ],

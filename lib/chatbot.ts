@@ -1,4 +1,5 @@
 import {
+  formatAddress,
   formatPhoneForDisplay,
   hasBusinessPhone,
   siteConfig,
@@ -46,7 +47,7 @@ function getContactResponse(): string {
     ? ` You can also call ${formatPhoneForDisplay(siteConfig.phone)}.`
     : " Schedule a conversation through our contact page and we'll follow up promptly.";
 
-  return `You can reach us at ${siteConfig.email}.${phoneLine} We're based in the ${siteConfig.address.area}.`;
+  return `You can reach us at ${siteConfig.email}.${phoneLine} We're located at ${formatAddress()}.`;
 }
 const RESPONSE_RULES: ResponseRule[] = [
   {

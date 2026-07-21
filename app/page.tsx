@@ -33,9 +33,9 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "Strategic Business Growth Advisory",
   description:
-    "Shefa partners with business owners and executive teams in the Washington, DC Metro Area to solve growth challenges through strategy, relationships, and execution.",
+    `Shefa partners with business owners and executive teams in ${siteConfig.address.area} to solve growth challenges through strategy, relationships, and execution.`,
   openGraph: {
-    title: "Shefa | Strategic Business Growth Advisory | Washington DC Metro",
+    title: `Shefa | Strategic Business Growth Advisory | ${siteConfig.address.area}`,
     description:
       "Executive advisory, strategic connections, and business growth support for leaders ready to build their next stage of success.",
     url: siteConfig.url,
